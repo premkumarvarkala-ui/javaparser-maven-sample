@@ -16,7 +16,7 @@ pipeline {
 
         stage("Git Checkout") {
             steps {
-                git branch: 'main',
+                git branch: 'master',
                     url: 'https://github.com/premkumarvarkala-ui/javaparser-maven-sample.git'
             }
         }
