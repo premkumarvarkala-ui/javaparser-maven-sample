@@ -5,7 +5,7 @@ pipeline {
     }
 
     tools {
-        maven 'Maven-3.9'
+        maven 'maven'
     }
 
     stages {
@@ -16,6 +16,17 @@ pipeline {
             }
         }
 
+        stage("Git Checkout") {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/premkumarvarkala-ui/javaparser-maven-sample.git'
+            }
+        }
+
+        stage("Maven Version") {
+            steps {
+                sh 'mvn -version'
+            }
         }
 
         stage("Maven Build") {
@@ -33,11 +44,11 @@ pipeline {
 
     post {
         success {
-            echo 'Maven build completed successfully!'
+            echo 'Build completed successfully!'
         }
 
         failure {
-            echo 'Maven build failed!'
+            echo 'Build failed!'
         }
     }
-
+}
