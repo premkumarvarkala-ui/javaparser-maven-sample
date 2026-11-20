@@ -40,4 +40,4 @@ pipeline {
             echo 'Maven build failed!'
         }
     }
-}
+
